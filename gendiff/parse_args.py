@@ -10,4 +10,3 @@ def parse_args():
         '-f', '--format', help='set format of output')
     args = parser.parse_args()
     return args
-
