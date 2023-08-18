@@ -8,8 +8,8 @@ def generate_diff(file1, file2):
     all_keys = sorted(list(set(list(data1.keys()) + list(data2.keys()))))
     general_info = []
     for key in all_keys:
-        if key in data1 and key in data2:  # the key is in both documents
-            if data1[key] == data2[key]:  # if keys and values match
+        if key in data1 and key in data2:
+            if data1[key] == data2[key]:
                 general_info.append({
                     'type': 'identical',
                     'key': key,
@@ -21,13 +21,13 @@ def generate_diff(file1, file2):
                     'key': key,
                     'value': [data1[key], data2[key]]
                 })
-        elif key in data1 and key not in data2:  # the key is only in the first document
+        elif key in data1 and key not in data2:
             general_info.append({
                 'type': 'removed',
                 'key': key,
                 'value': data1[key]
             })
-        elif key not in data1 and key in data2:  # the key is only in the second document
+        elif key not in data1 and key in data2:
             general_info.append({
                 'type': 'added',
                 'key': key,
@@ -41,13 +41,19 @@ def generate_result_string(data):
     result = []
     for i in data:
         if i['type'] == 'removed':
-            result.append('  ' + '-' + ' ' + str(i['key']) + ': ' + str(i['value']))
+            result.append(
+                '  ' + '-' + ' ' + str(i['key']) + ': ' + str(i['value']))
         elif i['type'] == 'added':
-            result.append('  ' + '+' + ' ' + str(i['key']) + ': ' + str(i['value']))
+            result.append(
+                '  ' + '+' + ' ' + str(i['key']) + ': ' + str(i['value']))
         elif i['type'] == 'identical':
-            result.append('    ' + str(i['key']) + ': ' + str(i['value']))
+            result.append(
+                '    ' + str(i['key']) + ': ' + str(i['value']))
         elif i['type'] == 'changed':
-            result.append('  ' + '-' + ' ' + str(i['key']) + ': ' + str(i['value'][0]))
-            result.append('  ' + '+' + ' ' + str(i['key']) + ': ' + str(i['value'][1]))
-    return '{' + '\n' + '\n'.join(sorted(result, key=lambda x: x[4])) + '\n' + '}'
-
+            result.append(
+                '  ' + '-' + ' ' + str(i['key']) + ': ' + str(i['value'][0]))
+            result.append(
+                '  ' + '+' + ' ' + str(i['key']) + ': ' + str(i['value'][1]))
+    return '{' + '\n' + '\n'.join(
+        sorted(result, key=lambda x: x[4])
+    ) + '\n' + '}'
