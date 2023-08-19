@@ -16,5 +16,5 @@ lint:
 gendiff:
 	poetry run gendiff
 
-test:
+tests:
 	poetry run pytest
