@@ -6,4 +6,3 @@ def generate_diff(path1, path2):
     tree = get_diff_tree(path1, path2)
     result = generate_result_string(tree)
     return result
-
