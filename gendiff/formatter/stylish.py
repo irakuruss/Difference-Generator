@@ -27,4 +27,3 @@ def generate_result_string(tree, indent='  '):
     return '{' + '\n' + '\n'.join(
         sorted(result, key=lambda x: x[4])
     ) + '\n' + '}'
-
