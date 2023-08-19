@@ -1,31 +1,37 @@
-name: pytest
+name: Python CI
 
-on: push
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "**"
+
 
 jobs:
-  tests:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: get code
-        uses: actions/checkout@v3
-      - name: python setup
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
         with:
-          python-version: "3.10"
-      - name: install dependencies
-        run: | 
+          python-version: "3.8"
+      - name: "Install poetry"
+        run: |
           pip install poetry
-          poetry install
+
+      - name: "Install dependencies"
+        run: |
+          make install
+          make build
+          make publish
+          make package-install
+
+      - name: "Run linters"
+        run: |
+          make lint
+
+      - name: "Run tests"
+        run: |
           make tests
-      - name: lint
-        run: | 
-            pip install poetry
-            poetry install
-            make lint
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v3.2.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make test-coverage
-          debug: true
