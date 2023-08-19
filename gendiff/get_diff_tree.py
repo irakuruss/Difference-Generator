@@ -33,4 +33,3 @@ def get_diff_tree(path1, path2):
                 'value': data2[key]
             })
     return diff_tree
-
