@@ -13,4 +13,3 @@ def load_data(path):
         else:
             raise ValueError(f'Unsupported file format: {ext}')
         return data
-
