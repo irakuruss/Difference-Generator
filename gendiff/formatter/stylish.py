@@ -66,4 +66,3 @@ def format_to_stylish(tree, depth=0):
 
     result.append(f'{INDENT * depth}}}')
     return '\n'.join(result)
-
