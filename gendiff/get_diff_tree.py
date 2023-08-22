@@ -14,7 +14,7 @@ def get_diff_tree(data1, data2):
                 'key': key,
                 'value': data1[key]
             }
-        elif isinstance(data1[key], dict) and                 isinstance(data2[key], dict):
+        elif isinstance(data1[key], dict) and isinstance(data2[key], dict):
             child = {
                 'type': 'nested',
                 'key': key,
@@ -35,4 +35,4 @@ def get_diff_tree(data1, data2):
             }
         diff_tree.append(child)
     return diff_tree
-
+    
