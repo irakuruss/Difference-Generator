@@ -30,10 +30,11 @@ def get_marker(sign):
 
 
 def string_constructor(depth, marker, key, value):
-    return f'{INDENT * depth}{get_marker(marker)}{key}: '            f'{style_formatter(value, depth + DEFAULT_INDENT)}'
+    return f'{INDENT * depth}{get_marker(marker)}{key}: '            
+    f'{style_formatter(value, depth + DEFAULT_INDENT)}'
 
 
-def format_to_stylish(tree, depth=0):
+def format_to_stylish(tree, depth=0): # noqa: format_to_stylish
     result = ['{']
     for node in tree:
         if node['type'] == 'identical':
