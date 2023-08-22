@@ -30,7 +30,7 @@ def get_marker(sign):
 
 
 def string_constructor(depth, marker, key, value):
-    return f'{INDENT * depth}{get_marker(marker)}{key}: '            
+    return f'{INDENT * depth}{get_marker(marker)}{key}: ' \
     f'{style_formatter(value, depth + DEFAULT_INDENT)}'
 
 
