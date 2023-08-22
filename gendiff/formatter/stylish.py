@@ -2,7 +2,7 @@ DEFAULT_INDENT = 4
 INDENT = ' '
 
 
-def style_formatter(value, depth):
+def style_formatter(value, depth=0):
     if isinstance(value, dict):
         result = ['{']
         for key, nest_val in value.items():
