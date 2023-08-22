@@ -1,29 +1,69 @@
-def style_formatter(value):
+DEFAULT_INDENT = 4
+INDENT = ' '
+
+
+def style_formatter(value, depth):
+    if isinstance(value, dict):
+        result = ['{']
+        for key, nest_val in value.items():
+            if isinstance(nest_val, dict):
+                new_value = style_formatter(nest_val, depth + DEFAULT_INDENT)
+                result.append(f'{INDENT * depth}    {key}: {new_value}')
+            else:
+                result.append(f'{INDENT * depth}    {key}: {nest_val}')
+        result.append(f'{INDENT * depth}}}')
+        return '\n'.join(result)
     if isinstance(value, bool):
-        return 'true' if value else 'false'
-    else:
-        return str(value)
+        return str(value).lower()
+    if value is None:
+        return 'null'
+    return str(value)
 
 
-def generate_result_string(tree, indent='  '):
-    mark = {'removed': '-', 'added': '+', 'identical': ' '}
-    result = []
-    for i in tree:
-        if i['type'] in ['removed', 'added', 'identical']:
-            result.append(
-                indent + mark[i['type']] +
-                ' ' + style_formatter(i['key']) +
-                ': ' + style_formatter(i['value'])
-            )
+def get_marker(sign):
+    markers = {
+        'added': '+',
+        'removed': '-',
+        'nothing': ' '
+    }
+    return f'{INDENT * 2}{markers[sign]}{INDENT}'
 
-        elif i['type'] == 'changed':
+
+def string_constructor(depth, marker, key, value):
+    return f'{INDENT * depth}{get_marker(marker)}{key}: '            f'{style_formatter(value, depth + DEFAULT_INDENT)}'
+
+
+def format_to_stylish(tree, depth=0):
+    result = ['{']
+    for node in tree:
+        if node['type'] == 'identical':
+            result.append(string_constructor(
+                depth, 'nothing', node['key'], node['value']
+            ))
+
+        if node['type'] == 'added':
+            result.append(string_constructor(
+                depth, 'added', node['key'], node['value']
+            ))
+
+        if node['type'] == 'removed':
+            result.append(string_constructor(
+                depth, 'removed', node['key'], node['value']
+            ))
+
+        if node['type'] == 'changed':
+            result.append(string_constructor(
+                depth, 'removed', node['key'], node['old_value']
+            ))
+            result.append(string_constructor(
+                depth, 'added', node['key'], node['new_value']
+            ))
+
+        if node['type'] == 'nested':
             result.append(
-                '  ' + '-' + ' ' +
-                style_formatter(i['key']) + ': ' +
-                style_formatter(i['value'][0]))
-            result.append(
-                '  ' + '+' + ' ' + style_formatter(i['key']) + ': ' +
-                style_formatter(i['value'][1]))
-    return '{' + '\n' + '\n'.join(
-        sorted(result, key=lambda x: x[4])
-    ) + '\n' + '}'
+                f"{INDENT * depth}    {node['key']}:"
+                f" {format_to_stylish(node['children'], depth + DEFAULT_INDENT)}")
+
+    result.append(f'{INDENT * depth}}}')
+    return '\n'.join(result)
+
