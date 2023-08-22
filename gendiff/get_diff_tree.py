@@ -35,4 +35,3 @@ def get_diff_tree(data1, data2):
             }
         diff_tree.append(child)
     return diff_tree
-    
