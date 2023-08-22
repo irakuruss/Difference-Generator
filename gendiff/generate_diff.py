@@ -9,4 +9,3 @@ def generate_diff(path1, path2):
     diff_tree = get_diff_tree(data1, data2)
     result = to_format(diff_tree)
     return result
-
