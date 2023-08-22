@@ -2,12 +2,12 @@ from gendiff.generate_diff import generate_diff
 
 
 TEST_FILES = [
-    ('tests/fixtures/file1.json', 'tests/fixtures/file2.json', 'result.txt'),
-    ('tests/fixtures/file1.yml', 'tests/fixtures/file2.yml', 'result.txt'),
-    ('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yaml', 'result.txt'),
-    ('tests/fixtures/file3.json', 'tests/fixtures/file4.json', 'result2.txt'),
-    ('tests/fixtures/file3.yml', 'tests/fixtures/file4.yml', 'result2.txt'),
-    ('tests/fixtures/file3.yaml', 'tests/fixtures/file4.yaml', 'result2.txt'),
+    ('tests/fixtures/file1.json', 'tests/fixtures/file2.json', 'tests/fixtures/result.txt'),
+    ('tests/fixtures/file1.yml', 'tests/fixtures/file2.yml', 'tests/fixtures/result.txt'),
+    ('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yaml', 'tests/fixtures/result.txt'),
+    ('tests/fixtures/file3.json', 'tests/fixtures/file4.json', 'tests/fixtures/result2.txt'),
+    ('tests/fixtures/file3.yml', 'tests/fixtures/file4.yml', 'tests/fixtures/result2.txt'),
+    ('tests/fixtures/file3.yaml', 'tests/fixtures/file4.yaml', 'tests/fixtures/result2.txt'),
 ]
 
 
