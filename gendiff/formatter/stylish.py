@@ -2,12 +2,12 @@ START_INDENT = 4
 INDENT = ' '
 
 
-def style_formatter(value, depth=0):
+def stringify(value, depth=0):
     if isinstance(value, dict):
         result = ['{']
         for key, nest_val in value.items():
             if isinstance(nest_val, dict):
-                new_value = style_formatter(nest_val, depth + START_INDENT)
+                new_value = stringify(nest_val, depth + START_INDENT)
                 result.append(f'{INDENT * depth}    {key}: {new_value}')
             else:
                 result.append(f'{INDENT * depth}    {key}: {nest_val}')
@@ -31,7 +31,7 @@ def get_marker(sign):
 
 def string_constructor(depth, marker, key, value):
     return f'{INDENT * depth}{get_marker(marker)}{key}: ' \
-           f'{style_formatter(value, depth + START_INDENT)}'
+           f'{stringify(value, depth + START_INDENT)}'
 
 
 def format_to_stylish(tree, depth=0): # noqa: format_to_stylish
