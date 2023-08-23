@@ -9,4 +9,3 @@ def to_format(data, format_name='stylish'):
         return format_to_plain(data)
     else:
         raise ValueError('Unsupported format')
-
