@@ -14,3 +14,6 @@
 
 4. Calculate diff in recursive files (YAML)
 [![asciicast](https://asciinema.org/a/Spbt7D5QcxGyFYaioawqjn7xI.svg)](https://asciinema.org/a/Spbt7D5QcxGyFYaioawqjn7xI)
+
+5. Examples with Plain format
+[![asciicast](https://asciinema.org/a/ZjwQ02DScR4aM9aS9jIVG40j6.svg)](https://asciinema.org/a/ZjwQ02DScR4aM9aS9jIVG40j6)
