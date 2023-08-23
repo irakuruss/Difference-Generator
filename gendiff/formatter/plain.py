@@ -35,4 +35,3 @@ def format_to_plain(tree, path=''):
             result.append(f"{new_value}")
 
     return '\n'.join(result)
-
