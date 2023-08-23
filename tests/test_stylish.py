@@ -1,4 +1,4 @@
-from gendiff.formatter.stylish import style_formatter
+from gendiff.formatter.stylish import stringify
 
 
 def test_style_formatter():
