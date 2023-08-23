@@ -17,3 +17,6 @@
 
 5. Examples with Plain format
 [![asciicast](https://asciinema.org/a/ZjwQ02DScR4aM9aS9jIVG40j6.svg)](https://asciinema.org/a/ZjwQ02DScR4aM9aS9jIVG40j6)
+
+6. Examples with JSON format:
+[![asciicast](https://asciinema.org/a/yB4ONwbLWR0ZLtIuwly2qbuRL.svg)](https://asciinema.org/a/yB4ONwbLWR0ZLtIuwly2qbuRL)
