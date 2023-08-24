@@ -16,4 +16,3 @@ def test_load_data():
             'proxy': '123.234.53.22',
             'follow': False
         }
-
