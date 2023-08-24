@@ -1,5 +1,5 @@
 def get_diff_tree(data1, data2):
-    all_keys = sorted(list(set(list(data1.keys()) + list(data2.keys()))))
+    all_keys = sorted(set(data1.keys()) | set(data2.keys()))
     diff_tree = []
     for key in all_keys:
         if key not in data1:
