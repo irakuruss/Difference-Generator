@@ -11,27 +11,27 @@ def stringify(value):
         return str(value)
 
 
-def format_to_plain(tree, path=''):
+def format_to_plain(tree, start_path_key=''):
     result = []
     for node in tree:
-        current_path = f'{path}{node["key"]}'
+        current_path_key = f'{start_path_key}{node["key"]}'
         if node['type'] == 'added':
             result.append(
-                f"Property '{current_path}' "
+                f"Property '{current_path_key}' "
                 f"was added with value: "
                 f"{stringify(node['value'])}")
 
-        if node['type'] == 'removed':
-            result.append(f"Property '{current_path}' was removed")
+        elif node['type'] == 'removed':
+            result.append(f"Property '{current_path_key}' was removed")
 
-        if node['type'] == 'changed':
+        elif node['type'] == 'changed':
             result.append(
-                f"Property '{current_path}'"
+                f"Property '{current_path_key}'"
                 f" was updated. From {stringify(node['old_value'])} "
                 f"to {stringify(node['new_value'])}")
 
-        if node['type'] == 'nested':
-            new_value = format_to_plain(node['children'], f"{current_path}.")
+        elif node['type'] == 'nested':
+            new_value = format_to_plain(node['children'], f"{current_path_key}.")
             result.append(f"{new_value}")
 
     return '\n'.join(result)
