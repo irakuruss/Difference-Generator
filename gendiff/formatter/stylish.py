@@ -5,28 +5,29 @@ INDENT = ' '
 def stringify(value, depth=0):
     if isinstance(value, dict):
         result = ['{']
-        for key, nest_val in value.items():
-            if isinstance(nest_val, dict):
-                new_value = stringify(nest_val, depth + START_INDENT)
+        for key, nest_value in value.items():
+            if isinstance(nest_value, dict):
+                new_value = stringify(nest_value, depth + START_INDENT)
                 result.append(f'{INDENT * depth}    {key}: {new_value}')
             else:
-                result.append(f'{INDENT * depth}    {key}: {nest_val}')
+                result.append(f'{INDENT * depth}    {key}: {nest_value}')
         result.append(f'{INDENT * depth}}}')
         return '\n'.join(result)
-    if isinstance(value, bool):
+    elif isinstance(value, bool):
         return str(value).lower()
-    if value is None:
+    elif value is None:
         return 'null'
-    return str(value)
+    else:
+        return str(value)
 
 
-def get_marker(sign):
+def get_marker(marker):
     markers = {
         'added': '+',
         'removed': '-',
         'nothing': ' '
     }
-    return f'{INDENT * 2}{markers[sign]}{INDENT}'
+    return f'{INDENT * 2}{markers[marker]}{INDENT}'
 
 
 def string_constructor(depth, marker, key, value):
@@ -42,17 +43,17 @@ def format_to_stylish(tree, depth=0): # noqa: format_to_stylish
                 depth, 'nothing', node['key'], node['value']
             ))
 
-        if node['type'] == 'added':
+        elif node['type'] == 'added':
             result.append(string_constructor(
                 depth, 'added', node['key'], node['value']
             ))
 
-        if node['type'] == 'removed':
+        elif node['type'] == 'removed':
             result.append(string_constructor(
                 depth, 'removed', node['key'], node['value']
             ))
 
-        if node['type'] == 'changed':
+        elif node['type'] == 'changed':
             result.append(string_constructor(
                 depth, 'removed', node['key'], node['old_value']
             ))
@@ -60,7 +61,7 @@ def format_to_stylish(tree, depth=0): # noqa: format_to_stylish
                 depth, 'added', node['key'], node['new_value']
             ))
 
-        if node['type'] == 'nested':
+        elif node['type'] == 'nested':
             result.append(
                 f"{INDENT * depth}    {node['key']}:"
                 f" {format_to_stylish(node['children'], depth + START_INDENT)}")
