@@ -32,7 +32,7 @@ def format_to_plain(tree, start_path_key=''):
 
         elif node['type'] == 'nested':
             new_value = format_to_plain(
-                node['children'], 
+                node['children'],
                 f"{current_path_key}."
             )
             result.append(f"{new_value}")
