@@ -1,5 +1,10 @@
 START_INDENT = 4
 INDENT = ' '
+MARKERS = {
+    'added': '  + ',
+    'removed': '  - ',
+    'nothing': '    '
+    }
 
 
 def stringify(value, depth=0):
@@ -21,17 +26,8 @@ def stringify(value, depth=0):
         return str(value)
 
 
-def get_marker(marker):
-    markers = {
-        'added': '+',
-        'removed': '-',
-        'nothing': ' '
-    }
-    return f'{INDENT * 2}{markers[marker]}{INDENT}'
-
-
 def build_string(depth, marker, key, value):
-    return f'{INDENT * depth}{get_marker(marker)}{key}: ' \
+    return f'{INDENT * depth}{MARKERS[marker]}{key}: ' \
            f'{stringify(value, depth + START_INDENT)}'
 
 
