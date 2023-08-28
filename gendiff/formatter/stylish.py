@@ -4,7 +4,7 @@ MARKERS = {
     'added': '  + ',
     'removed': '  - ',
     'nothing': '    '
-    }
+}
 
 
 def stringify(value, depth=0):
