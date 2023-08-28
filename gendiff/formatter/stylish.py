@@ -30,7 +30,7 @@ def get_marker(marker):
     return f'{INDENT * 2}{markers[marker]}{INDENT}'
 
 
-def string_constructor(depth, marker, key, value):
+def build_string(depth, marker, key, value):
     return f'{INDENT * depth}{get_marker(marker)}{key}: ' \
            f'{stringify(value, depth + START_INDENT)}'
 
@@ -39,25 +39,25 @@ def format_to_stylish(tree, depth=0): # noqa: format_to_stylish
     result = ['{']
     for node in tree:
         if node['type'] == 'identical':
-            result.append(string_constructor(
+            result.append(build_string(
                 depth, 'nothing', node['key'], node['value']
             ))
 
         elif node['type'] == 'added':
-            result.append(string_constructor(
+            result.append(build_string(
                 depth, 'added', node['key'], node['value']
             ))
 
         elif node['type'] == 'removed':
-            result.append(string_constructor(
+            result.append(build_string(
                 depth, 'removed', node['key'], node['value']
             ))
 
         elif node['type'] == 'changed':
-            result.append(string_constructor(
+            result.append(build_string(
                 depth, 'removed', node['key'], node['old_value']
             ))
-            result.append(string_constructor(
+            result.append(build_string(
                 depth, 'added', node['key'], node['new_value']
             ))
 
