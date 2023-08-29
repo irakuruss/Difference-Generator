@@ -37,8 +37,10 @@ ___
 ### Usage
 To display help information for the utility, run the following command: 
 `gendiff -h`
+
 The program takes two arguments as input - the paths to the configuration files that need to be compared: 
 `gendiff first_file second_file`
+
 The comparison result can be displayed in different formats. To specify the output format, use the option --format:
 `gendiff -f FORMAT first_file second_file`
 ___
