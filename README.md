@@ -13,7 +13,7 @@ Features:
  - Supported file formats: JSON, YAML.
  - Output as plain text, structured text or JSON.
 
-Built With
+Built With:
 - Python
 - Poetry
 - PyYAML
