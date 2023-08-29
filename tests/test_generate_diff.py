@@ -24,6 +24,11 @@ TEST_FILES = [
     ('file3.yaml', 'file4.yaml', 'result2-json.txt', 'json')
 ]
 
+TEST_FILES_EXCEPTION = [
+    ('file1.json', 'file2.json', 'txt'),
+    ('file3.yml', 'file4.yml', 'doc')
+]
+
 
 def get_path(filename):
     return os.path.join('tests/fixtures', filename)
@@ -37,3 +42,13 @@ def test_generate_diff(file1, file2, result, formatter):
         get_path(file1),
         get_path(file2),
         formatter) == result_string
+
+
+@pytest.mark.parametrize('file1, file2, formatter', TEST_FILES_EXCEPTION)
+def test_exception(file1, file2, formatter):
+    with pytest.raises(ValueError) as e:
+        generate_diff(
+            get_path(file1),
+            get_path(file2),
+            formatter)
+        assert str(e.value) == 'Unsupported format'
