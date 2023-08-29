@@ -7,12 +7,13 @@ Calculate the difference between two files
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3f10fbe2a4cc417ffd52/test_coverage)](https://codeclimate.com/github/irakuruss/python-project-50/test_coverage)
 [![Python CI](https://github.com/irakuruss/python-project-50/actions/workflows/main.yml/badge.svg)](https://github.com/irakuruss/python-project-50/actions/workflows/main.yml)
 ___
+### Description
 Difference Generator is a tool that determines the difference between two data structures.
 
 Features:
- Supported file formats: JSON, YAML.
- Output as plain text, structured text or JSON.
-___
+ - Supported file formats: JSON, YAML.
+ - Output as plain text, structured text or JSON.
+
 Built With
 - Python
 - Poetry
@@ -22,7 +23,7 @@ Built With
 - flake8
 - argparse
 ___
-Installation :
+### Installation
 1. Clone project.
 git clone https://github.com/irakuruss/python-project-50.git
 pip install --user git+https://github.com/irakuruss/python-project-50.git
@@ -30,7 +31,7 @@ pip install --user git+https://github.com/irakuruss/python-project-50.git
 3. Go to ur local directory with project and use make build command for creating the package.
 4. For installation use python3 -m pip install --user dist/*.whl command, or make package-install
 ___
-Usage
+### Usage
 To display help information for the utility, run the following command: 
 gendiff -h
 The program takes two arguments as input - the paths to the configuration files that need to be compared: 
@@ -38,20 +39,23 @@ gendiff first_file second_file
 The comparison result can be displayed in different formats. To specify the output format, use the option --format:
 gendiff -f FORMAT first_file second_file
 ___
-Stylish format
+### Stylish format
+
 If no format option is provided, output will be provided in stylish format.
 
 The difference is based on how the files have changed relative to each other, the keys are rendered in alphabetical order.
 
 The absence of a plus or minus indicates that the key is in both files, and its values coincide. In all other situations, the value of the key is either different, or the key is only in one file.
 ___
-Plain format
+### Plain format
+
 Plain format reflects the situation as if we had combined the second object with the first one.
 
 If the new value of the property is a complex value, [complex value] is provided.
 If the property is nested, then the entire path to the root is displayed, not just including the parent.
 ___
-JSON format
+### JSON format
+
 In addition to an unstructured output (as a text), often an output in a structured format, such as JSON, is needed.
 
 JSON (JavaScript Object Notation) is a standard text format for representing structured data based on JavaScript object syntax. It is usually used to transfer data in web applications (e.g. sending some data from the server to the client so that it can be displayed on a web page or vice versa).
