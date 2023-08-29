@@ -1,12 +1,11 @@
 # Difference Generator
-Calculate the difference between two files
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/irakuruss/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/irakuruss/python-project-50/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3f10fbe2a4cc417ffd52/maintainability)](https://codeclimate.com/github/irakuruss/python-project-50/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3f10fbe2a4cc417ffd52/test_coverage)](https://codeclimate.com/github/irakuruss/python-project-50/test_coverage)
 [![Python CI](https://github.com/irakuruss/python-project-50/actions/workflows/main.yml/badge.svg)](https://github.com/irakuruss/python-project-50/actions/workflows/main.yml)
-___
+
 ### Description
 Difference Generator is a tool that determines the difference between two data structures.
 
