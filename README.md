@@ -66,19 +66,25 @@ In addition to an unstructured output (as a text), often an output in a structur
 JSON (JavaScript Object Notation) is a standard text format for representing structured data based on JavaScript object syntax. It is usually used to transfer data in web applications (e.g. sending some data from the server to the client so that it can be displayed on a web page or vice versa).
 ___
 1. Calculate diff in flat files (JSON)
+
 [![asciicast](https://asciinema.org/a/tNWxhfCoAZ5HgWi6pNJQCHQ29.svg)](https://asciinema.org/a/tNWxhfCoAZ5HgWi6pNJQCHQ29)
-___
+
 2. Calculate diff in flat files (YAML)
+
 [![asciicast](https://asciinema.org/a/qDOp2Y2ECv107YZkTwulwLhjR.svg)](https://asciinema.org/a/qDOp2Y2ECv107YZkTwulwLhjR)
-___
+
 3. Calculate diff in recursive files (JSON)
-[![asciicast](https://asciinema.org/a/ql7k0v3b9AhKx4n5ArVN0dvvD.svg)](https://asciinema.org/a/ql7k0v3b9AhKx4n5ArVN0dvvD)
-___
+
+[![asciicast](https://asciinema.org/a/t36hpVAQxZWoQULH6e4iZFuyn.svg)](https://asciinema.org/a/t36hpVAQxZWoQULH6e4iZFuyn)
+
 4. Calculate diff in recursive files (YAML)
-[![asciicast](https://asciinema.org/a/Spbt7D5QcxGyFYaioawqjn7xI.svg)](https://asciinema.org/a/Spbt7D5QcxGyFYaioawqjn7xI)
-___
+
+[![asciicast](https://asciinema.org/a/82Cx3zIuLbdeUDgtnJxafGVlY.svg)](https://asciinema.org/a/82Cx3zIuLbdeUDgtnJxafGVlY)
+
 5. Examples with Plain format
+
 [![asciicast](https://asciinema.org/a/ZjwQ02DScR4aM9aS9jIVG40j6.svg)](https://asciinema.org/a/ZjwQ02DScR4aM9aS9jIVG40j6)
-___
-6. Examples with JSON format:
-[![asciicast](https://asciinema.org/a/yB4ONwbLWR0ZLtIuwly2qbuRL.svg)](https://asciinema.org/a/yB4ONwbLWR0ZLtIuwly2qbuRL)
+
+6. Examples with JSON format
+   
+[![asciicast](https://asciinema.org/a/0r1MJ3Sv02fVBJVtMVC7zkyPo.svg)](https://asciinema.org/a/0r1MJ3Sv02fVBJVtMVC7zkyPo)
