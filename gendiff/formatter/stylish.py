@@ -3,7 +3,7 @@ INDENT = ' '
 MARKERS = {
     'added': '  + ',
     'removed': '  - ',
-    'nothing': '    '
+    'identical': '    '
 }
 
 
@@ -34,19 +34,9 @@ def build_string(depth, marker, key, value):
 def format_to_stylish(tree, depth=0): # noqa: format_to_stylish
     result = ['{']
     for node in tree:
-        if node['type'] == 'identical':
+        if node['type'] in ('identical', 'added', 'removed'):
             result.append(build_string(
-                depth, 'nothing', node['key'], node['value']
-            ))
-
-        elif node['type'] == 'added':
-            result.append(build_string(
-                depth, 'added', node['key'], node['value']
-            ))
-
-        elif node['type'] == 'removed':
-            result.append(build_string(
-                depth, 'removed', node['key'], node['value']
+                depth, node['type'], node['key'], node['value']
             ))
 
         elif node['type'] == 'changed':
