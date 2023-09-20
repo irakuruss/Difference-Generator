@@ -65,4 +65,4 @@ def test_exception2(file1, file2):
         generate_diff(
             get_path(file1),
             get_path(file2))
-        assert str(e.value) == 'Unsupported file format: pdf'
+        assert str(e.value) == 'Unsupported data format: pdf'

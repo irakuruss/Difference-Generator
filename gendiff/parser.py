@@ -14,4 +14,4 @@ def parse(data, ext):
     elif ext in ('yml', 'yaml'):
         return yaml.load(data, Loader=yaml.Loader)
     else:
-        raise ValueError(f'Unsupported file format: {ext}')
+        raise ValueError(f'Unsupported data format: {ext}')
